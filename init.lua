@@ -238,3 +238,6 @@ require('telescope').setup()
 
 -- Initialize terminal size state
 _G.terminal_size_state = 'small'
+
+vim.opt.clipboard = "unnamedplus"
+vim.keymap.set("v", "<C-c>", "+y")
