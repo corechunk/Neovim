@@ -111,10 +111,10 @@ if prompt_user "Do you want to install ?";then
     mkdir -p "$HOME/.config/nvim"
     git clone https://github.com/LazyVim/starter ~/.config/nvim
     rm -rf ~/.config/nvim/.git
-    return 0
+    exit 0
 else
     echo "aborting installation of lazyvim"
-    return 1
+    exit 1
 fi
 
 echo "Neovim dotfiles installation complete."
