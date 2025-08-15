@@ -51,39 +51,10 @@ package_manager() {
     fi
 }
 
-str_finder(){              #           (( 1.2 ))
-    if grep -q "$2" "$1";then
-        return 0
-    else
-        return 1
-    fi
-}
-recopy(){
-    if [[ -f "$2" ]];then
-        cp "$1" "$2"
-        if [ $? -eq 0 ];then echo "successfully re-copied"; fi
-        return 0
-    fi
-    echo "file doesn't exist"
-    return 1
-}
-
 #                  ################################## ################################## ##################################
 #                  ################################## ========+ MAIN functions +======== ################################## kitty
 #                  ################################## ################################## ##################################
 
-#config checker
-config_checker(){
-    if [ ! -d "$CONFIG_DIR" ];then
-        if mkdir -p "$CONFIG_DIR" && echo "$CONFIG_DIR created successfully";then
-            return 0
-        else
-            return 1
-        fi
-    fi
-    echo "$CONFIG_DIR already exists"
-    return 0
-}
 
 # Function to install neovim
 install_neovim() {  ##################
@@ -120,71 +91,6 @@ install_neovim() {  ##################
     fi
 }
 
-# 
-ensure_init_lua() {   
-
-    if ! config_checker;then
-        echo "unable to create $CONFIG_DIR, quiting ... "
-        return 1
-    fi
-
-    if [ ! -f "$target_conf" ]; then
-        if prompt_user "init.lua not found in $CONFIG_DIR. Create an empty init.lua?"; then
-            touch "$target_conf"
-            echo "Created empty file $target_conf."
-        else
-            echo "Cannot proceed without init.lua !"
-            return 1
-        fi
-    fi
-    return 0
-}
-
-# Function to install init_custom.lua and update init.lua
-install_init_custom_lua() {
-
-    if ! config_checker;then
-        echo "unable to create $CONFIG_DIR, quiting ... "
-        return 1
-    fi
-
-    if prompt_user "Install 'init_custom.lua' and source it in 'init.lua'?"; then
-
-        if [ ! -f "$script_custom" ]; then
-            echo "Error: init_custom.lua not found in $SCRIPT_DIR dir"
-            return 1
-        fi
-
-        if [ ! -f "$target_custom" ]; then   ##  !!
-            cp "$script_custom" "$target_custom"
-            echo "init_custom.lua pasted"
-        else
-            echo "init_custom.lua already installed in $CONFIG_DIR."
-            if prompt_user "wanna re-install?";then
-                if cp "$script_custom" "$target_custom";then
-                    echo re-pasted
-                else
-                    return 1
-                fi
-            else
-                echo "skipping without re-pasting 'init_custom.lua'"
-            fi
-        fi
-        
-        # Check if init_custom.lua is already included
-        if ! grep -q "dofile(vim.fn.stdpath('config') .. '/init_custom.lua')" "$target_conf"; then
-            echo "Adding source directive for init_custom.lua to init.lua..."
-            echo "dofile(vim.fn.stdpath('config') .. '/init_custom.lua')" >> "$target_conf"
-            echo "sourceed 'init_custom.lua' in 'init.lua'."
-        else
-            echo "'init_custom.lua' is already sourceed in 'init.lua'"
-        fi
-        return 0
-    else
-        echo "Skipping 'init_custom.lua' installation."
-        return 1
-    fi
-}
 
 
 # ==========  ========== Main execution ==========  ========== 
@@ -197,15 +103,19 @@ if ! install_neovim;then
     echo "somehow installation of Neovim from '$(package_manager)' has failed"
 fi
 
-if ! ensure_init_lua;then
-    echo "'init.lua' file couldn't be created !! sorry, i tried :( "
+echo "Do you want to install Lazyvim configuration ?"
+echo "--> this will delete your existing neovim configuration in your '$HOME/.config/nvim' directory !!    <<  <<  <<  <<  <<  <<  <<"
+if prompt_user "Do you want to install ?";then
+    echo "installing lazyvim ..."
+    rm -rf ~/.config/nvim
+    mkdir -p "$HOME/.config/nvim"
+    git clone https://github.com/LazyVim/starter ~/.config/nvim
+    rm -rf ~/.config/nvim/.git
+    return 0
+else
+    echo "aborting installation of lazyvim"
+    return 1
 fi
-
-if ! install_init_custom_lua;then
-    echo "somehow installation of 'init_custom.lua' has failed"
-fi
-
-
 
 echo "Neovim dotfiles installation complete."
 exit 0
