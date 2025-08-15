@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Determine the source directory based on execution context
-if [ -d "neovim" ]; then
+if [ -d "nvim" ]; then
     # Called from root of repo
-    SCRIPT_DIR="neovim"
+    SCRIPT_DIR="nvim"
 else
     # Called from within neovim folder
     SCRIPT_DIR="."
@@ -151,7 +151,7 @@ install_init_custom_lua() {
     if prompt_user "Install 'init_custom.lua' and source it in 'init.lua'?"; then
 
         if [ ! -f "$script_custom" ]; then
-            echo "Error: init_custom.lua not found in $SCRIPT_DIR."
+            echo "Error: init_custom.lua not found in $SCRIPT_DIR dir"
             return 1
         fi
 
