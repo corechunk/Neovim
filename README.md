@@ -1,79 +1,27 @@
-# This is a "Neovim Configuration" for beginners
->### This configuration will give you 'integrated terminal' and 'file tree' inside Neovim.
->![Screenshot of Neovim Config](source/image.png)
->
->### --- Keyboard Shortcuts ---
->* `ctrl + T`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: toggles the file tree view \[ use arrow keys to navigate and <enter> to use \]
->* `ctrl + shift + T` : only shifts your focus toward file tree \[ not the opposite \]
->* `ctrl + alt + C` &nbsp;&nbsp;&nbsp;&nbsp;: Starts the integrated terminal if it doesn't exist
->* `ctrl + shift + F` : Toggles the integrated terminal [ only if the terminal is Started ]
->* `ctrl + <space>` &nbsp;&nbsp;&nbsp;&nbsp;: Turns on command search [ exit that by <esc> ]
----
-## If you have Neovim installed on your Linux System
->
->
->### Open any Terminal you have -- and follow this instruction page
->#### [ Run these commands to follow the ordered list's instruction ] 
->
->1. Open .config folder
-> ```bash
-> cd .config
-> ```
->>> [[ click this ]  This is a shortcut if you have git installed on your system !!](source/PAGE2.md)
->2. Open nvim folder
-> ```bash
-> cd nvim
-> ```
->>> 2.2. If nvim directory doesn't exist then create one
-> >>```
-> >>mkdir nvim
-> >>```
->>> 2.3. Now do step "2" again and then try step "3"
->
->3. Open 'init.lua' file [ you can use nvim / vim / nano or anything ]
->* * If you are running from terminal and don't have the file it will automatically open a canvas named 'init.lua' and will apear as a file if you write, save and exit.
->```bash
->nano init.lua
->```
->>> 3.2. If the file doesn't exist and wanna create manually
->>>```bash
->>>touch init.lua
->>>```
->>> 3.3. Now follow step "3" again and then try step "4"
->4. Copy everything from 'init.lua' provided in this github repository
->4.2. paste, save and exit \[ in your init.lua \]
->
-# You are all set !!  You can reopen Neovim to see changes :)
-
-
-
-
-
-
-a
-
-a
-
-a
-
 # Neovim Dotfiles Installer
 
 This repository provides a Bash script (`installer_nvim_dots.sh`) to automate the installation of Neovim and custom configurations for a beginner-friendly setup with an integrated terminal and file tree. It supports Debian/Ubuntu (`apt`) and Arch-based (`pacman`) systems. All default Neovim keybindings are overridden with custom shortcuts tailored to my workflow, as defined in `init_custom.lua`.
 
 - This is part of my [dotfiles](https://github.com/Miraj13123/dotfiles) repository. You can use the [dotfiles](https://github.com/Miraj13123/dotfiles) repo to automatically download this repo along with other dotfiles repositories like Tmux, Kitty, and Bash.
+- You can checkout the other repositoy which will install `lazyvim` configuration for your `neovim`.
 
+<!-- 
 <p align="center">
   <img src="https://raw.githubusercontent.com/neovim/neovim.github.io/master/logos/neovim-logo-300x87.png" alt="Neovim Dotfiles Badge" width="300"/>
+</p>
+-->
+<p align="center">
+  <img src="https://img.shields.io/badge/Neovim-Dotfiles-181717?style=flat-square&logo=neovim" alt="Neovim Dotfiles Badge" width="300"/>
 </p>
 
 ---
 
+>![Screenshot of Neovim Config](source/image.png)
 ## ✨ Features
 
 - **Automated Installation**: Installs Neovim and sets up a custom configuration for a modern editing experience.
 - **Integrated Terminal and File Tree**: Provides a VSCode-like interface with a file tree and embedded terminal.
 - **Custom Keybindings**: Overrides default Neovim shortcuts with intuitive mappings (see Keybindings section).
-- **Non-Interactive Support**: Suitable for `curl | bash` deployment.
 - **Safe File Handling**: Prompts to avoid overwriting existing configuration files.
 - **Cross-Distro Compatibility**: Supports Debian/Ubuntu (`apt`) and Arch-based (`pacman`) systems.
 
@@ -81,7 +29,6 @@ This repository provides a Bash script (`installer_nvim_dots.sh`) to automate th
 
 - A Debian/Ubuntu or Arch-based Linux system.
 - `sudo` permissions for package installation.
-- A terminal for interactive execution or a non-interactive environment for `curl | bash`.
 
 ### Install Prerequisites
 ```bash
@@ -133,7 +80,12 @@ dofile(vim.fn.stdpath('config') .. '/init_custom.lua')
 
 ## ⌨️ Keybindings
 
-This configuration disables default Neovim keybindings and uses custom shortcuts for a beginner-friendly experience. The keybindings below are defined in `init_custom.lua` and do not use a leader key (all are direct key combinations).
+This configuration disables default Neovim keybindings and uses simple, direct shortcuts for a beginner-friendly experience, without requiring a leader key (unlike traditional Vim setups). The **command palette** (`Ctrl+Space`) opens a searchable menu where you can type Neovim commands (e.g., `w` to save) and press `<Enter>` to execute or `<Esc>` to exit, similar to VSCode’s command palette.
+
+New to Vim? Learn about its default motions (e.g., `h`, `j`, `k`, `l` for navigation) and modes (Normal, Insert, Visual) in [Vim Motions and Modes](docs/vim_motions_modes.md) to understand the basics.
+
+- These keybinds will only work in normal mode 
+  - (not in insert mode)
 
 | **Category**         | **Keybinding**            | **Action**                              |
 |----------------------|---------------------------|-----------------------------------------|
@@ -143,7 +95,7 @@ This configuration disables default Neovim keybindings and uses custom shortcuts
 | **Terminal**         | `Ctrl+Alt+C`             | Start the integrated terminal if not open |
 |                      | `Ctrl+Shift+F`           | Toggle the integrated terminal (if started) |
 | -                    | -                        | -                                       |
-| **Command Search**   | `Ctrl+Space`             | Open command search (exit with `<Esc>`) |
+| **Command Palette**  | `Ctrl+Space`             | Open command palette (type command, `<Enter>` to execute, `<Esc>` to exit) |
 
 *Note*: Additional keybindings may be defined in `init_custom.lua`. Check the file for the full list.
 
@@ -151,8 +103,9 @@ This configuration disables default Neovim keybindings and uses custom shortcuts
 
 ## 📝 Customization
 
-- **Extend Configurations**: Add custom settings to `~/.config/nvim/init_custom.lua` to override or extend defaults without modifying `init.lua`.
-- **Plugin Management**: Install plugins by editing `init_custom.lua` (e.g., using `packer.nvim` or `lazy.nvim`) and running the appropriate sync command (e.g., `:PackerSync` or `:Lazy sync`).
+- **Extend Configurations**: Add custom settings to `~/.config/nvim/init_custom.lua` to personalize Neovim without editing `init.lua`. For example, modify keybindings or add plugins.
+- **Plugin Management**: Install plugins in `init_custom.lua` using a plugin manager like `packer.nvim` or `lazy.nvim`. Run `:PackerSync` or `:Lazy sync` in Neovim to install or update plugins.
+- **Learn More**: Visit [Vim Motions and Modes](docs/vim_motions_modes.md) to learn efficient navigation and editing techniques for Neovim.
 
 ---
 
