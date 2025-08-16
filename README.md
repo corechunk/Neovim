@@ -93,7 +93,7 @@ dofile(vim.fn.stdpath('config') .. '/init_custom.lua')
 
 This configuration disables default Neovim keybindings and uses simple, direct shortcuts for a beginner-friendly experience, without requiring a leader key (unlike traditional Vim setups). The **command palette** (`Ctrl+Space`) opens a searchable menu where you can type Neovim commands (e.g., `w` to save) and press `<Enter>` to execute or `<Esc>` to exit, similar to VSCode’s command palette.
 
-New to Vim? Learn about its default motions (e.g., `h`, `j`, `k`, `l` for navigation) and modes (Normal, Insert, Visual) in [Vim Motions and Modes](docs/vim_motions_modes.md) to understand the basics.
+New to Vim? Learn about its default motions (e.g., `h`, `j`, `k`, `l` for navigation) and modes (Normal, Insert, Visual) in [Vim Motions and Modes](https://github.com/Miraj13123/extras/blob/main/files/vim/vim_motions_modes.md) to understand the basics.
 
 - These keybinds will only work in normal mode 
   - (not in insert mode)
@@ -116,7 +116,7 @@ New to Vim? Learn about its default motions (e.g., `h`, `j`, `k`, `l` for naviga
 
 - **Extend Configurations**: Add custom settings to `~/.config/nvim/init_custom.lua` to personalize Neovim without editing `init.lua`. For example, modify keybindings or add plugins.
 - **Plugin Management**: Install plugins in `init_custom.lua` using a plugin manager like `packer.nvim` or `lazy.nvim`. Run `:PackerSync` or `:Lazy sync` in Neovim to install or update plugins.
-- **Learn More**: Visit [Vim Motions and Modes](docs/vim_motions_modes.md) to learn efficient navigation and editing techniques for Neovim.
+- **Learn More**: Visit [Vim Motions and Modes](https://github.com/Miraj13123/extras/blob/main/files/vim/vim_motions_modes.md) to learn efficient navigation and editing techniques for Neovim.
 
 ---
 
