@@ -89,7 +89,7 @@ nvim
 
 LazyVim uses a **leader key** set to `<Space>` by default. After opening Neovim by running `nvim` in a terminal, press `<Space>` like any other key to see a popup menu of available shortcuts followed by `<leader>` (powered by WhichKey). This makes it easy to discover commands without memorizing them.
 
-New to Vim? Learn about its default motions (e.g., `h`, `j`, `k`, `l` for navigation) and modes (Normal, Insert, Visual) in [Vim Motions and Modes](docs/vim_motions_modes.md) to get started.
+New to Vim? Learn about its default motions (e.g., `h`, `j`, `k`, `l` for navigation) and modes (Normal, Insert, Visual) in [Vim Motions and Modes](https://github.com/Miraj13123/extras/blob/main/files/vim/vim_motions_modes.md) to get started.
 
 Below are the most important shortcuts to know as a beginner. These work in **Normal mode** (press `<Esc>` to enter Normal mode).
 
@@ -112,7 +112,7 @@ Below are the most important shortcuts to know as a beginner. These work in **No
 nvim
 :Lazy sync
 ```
-- **Learn More**: Visit [Vim Motions and Modes](docs/vim_motions_modes.md) for navigation tips, or explore the [LazyVim documentation](https://www.lazyvim.org) for advanced customization.
+- **Learn More**: Visit [Vim Motions and Modes](https://github.com/Miraj13123/extras/blob/main/files/vim/vim_motions_modes.md) for navigation tips, or explore the [LazyVim documentation](https://www.lazyvim.org) for advanced customization.
 
 ---
 
