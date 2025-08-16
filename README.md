@@ -8,6 +8,9 @@ This repository provides a Bash script (`installer_nvim_dots.sh`) to automate th
 <p align="center">
   <img src="https://img.shields.io/badge/Neovim-LazyVim-181717?style=flat-square&logo=neovim" alt="Neovim LazyVim Badge" width="300"/>
 </p>
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/292349/213447056-92290767-ea16-430c-8727-ce994c93e9cc.png" alt="Neovim Dotfiles Badge" width="800"/>
+</p>
 
 ---
 
