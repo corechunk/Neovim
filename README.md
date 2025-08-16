@@ -39,8 +39,10 @@ sudo apt install curl git -y
 
 ## 🛠️ Installation
 
-### Manual Installation
-Clone the repository, run the script, and clean up:
+**Warning**: The script will modify your existing `~/.config/nvim` directory to install the custom configuration. Back up any custom configurations in `~/.config/nvim` before proceeding.
+
+### Start Installation
+Run these commands to clone the repository, run the script, and clean up automatically:
 ```bash
 git clone https://github.com/Miraj13123/Neovim.git temp101
 cd temp101
@@ -49,15 +51,24 @@ chmod +x installer_nvim_dots.sh
 cd ..
 rm -rf temp101
 ```
+**Note**: Clones the repository, runs the script to install Neovim and custom configuration, and removes the temporary folder.
 
-### One-Liner Installation
+### One-Liner to Start Installation
 ```bash
 git clone https://github.com/Miraj13123/Neovim.git temp101 && cd temp101 && chmod +x installer_nvim_dots.sh && ./installer_nvim_dots.sh && cd .. && rm -rf temp101
 ```
 
+### If you wanna checkout the repository yourself [OPTIONAL]
+- Go to any folder where you’re comfortable cloning the repository.
+- Give permission to the script and run it.
+- You can explore the repository files or read the GitHub page for details.
+```bash
+git clone https://github.com/Miraj13123/Neovim.git
+```
+
 The script will:
 1. Detect the package manager (`apt` or `pacman`).
-2. Install Neovim if not already present (assumes "yes" in non-interactive mode).
+2. Install Neovim if not already present (prompts for confirmation in interactive mode).
 3. Create or update `~/.config/nvim/init.lua` and `init_custom.lua`.
 4. Source `init_custom.lua` in `init.lua` for custom configurations.
 
