@@ -2,7 +2,7 @@
 
 This repository provides a Bash script (`installer_nvim_dots.sh`) to automate the installation of Neovim and custom configurations for a beginner-friendly setup with an integrated terminal and file tree. It supports Debian/Ubuntu (`apt`) and Arch-based (`pacman`) systems. All default Neovim keybindings are overridden with custom shortcuts tailored to my workflow, as defined in `init_custom.lua`.
 
-- This is part of my [dotfiles](https://github.com/Miraj13123/dotfiles) repository. You can use the [dotfiles](https://github.com/Miraj13123/dotfiles) repo to automatically download this repo along with other dotfiles repositories like Tmux, Kitty, and Bash.
+- This is part of my [dotfiles](https://github.com/corechunk/dotfiles) repository. You can use the [dotfiles](https://github.com/corechunk/dotfiles) repo to automatically download this repo along with other dotfiles repositories like Tmux, Kitty, and Bash.
 - You can checkout the other repositoy which will install `lazyvim` configuration for your `neovim`.
 
 <!-- 
@@ -44,7 +44,7 @@ sudo apt install curl git -y
 ### Start Installation
 Run these commands to clone the repository, run the script, and clean up automatically:
 ```bash
-git clone https://github.com/Miraj13123/Neovim.git temp101
+git clone https://github.com/corechunk/Neovim.git temp101
 cd temp101
 chmod +x installer_nvim_dots.sh
 ./installer_nvim_dots.sh
@@ -55,7 +55,7 @@ rm -rf temp101
 
 ### One-Liner to Start Installation
 ```bash
-git clone https://github.com/Miraj13123/Neovim.git temp101 && cd temp101 && chmod +x installer_nvim_dots.sh && ./installer_nvim_dots.sh && cd .. && rm -rf temp101
+git clone https://github.com/corechunk/Neovim.git temp101 && cd temp101 && chmod +x installer_nvim_dots.sh && ./installer_nvim_dots.sh && cd .. && rm -rf temp101
 ```
 
 ### If you wanna checkout the repository yourself [OPTIONAL]
@@ -63,7 +63,7 @@ git clone https://github.com/Miraj13123/Neovim.git temp101 && cd temp101 && chmo
 - Give permission to the script and run it.
 - You can explore the repository files or read the GitHub page for details.
 ```bash
-git clone https://github.com/Miraj13123/Neovim.git
+git clone https://github.com/corechunk/Neovim.git
 ```
 
 The script will:
@@ -93,7 +93,7 @@ dofile(vim.fn.stdpath('config') .. '/init_custom.lua')
 
 This configuration disables default Neovim keybindings and uses simple, direct shortcuts for a beginner-friendly experience, without requiring a leader key (unlike traditional Vim setups). The **command palette** (`Ctrl+Space`) opens a searchable menu where you can type Neovim commands (e.g., `w` to save) and press `<Enter>` to execute or `<Esc>` to exit, similar to VSCode’s command palette.
 
-New to Vim? Learn about its default motions (e.g., `h`, `j`, `k`, `l` for navigation) and modes (Normal, Insert, Visual) in [Vim Motions and Modes](https://github.com/Miraj13123/extras/blob/main/files/vim/vim_motions_modes.md) to understand the basics.
+New to Vim? Learn about its default motions (e.g., `h`, `j`, `k`, `l` for navigation) and modes (Normal, Insert, Visual) in [Vim Motions and Modes](https://github.com/corechunk/extras/blob/main/files/vim/vim_motions_modes.md) to understand the basics.
 
 - These keybinds will only work in normal mode 
   - (not in insert mode)
@@ -116,7 +116,7 @@ New to Vim? Learn about its default motions (e.g., `h`, `j`, `k`, `l` for naviga
 
 - **Extend Configurations**: Add custom settings to `~/.config/nvim/init_custom.lua` to personalize Neovim without editing `init.lua`. For example, modify keybindings or add plugins.
 - **Plugin Management**: Install plugins in `init_custom.lua` using a plugin manager like `packer.nvim` or `lazy.nvim`. Run `:PackerSync` or `:Lazy sync` in Neovim to install or update plugins.
-- **Learn More**: Visit [Vim Motions and Modes](https://github.com/Miraj13123/extras/blob/main/files/vim/vim_motions_modes.md) to learn efficient navigation and editing techniques for Neovim.
+- **Learn More**: Visit [Vim Motions and Modes](https://github.com/corechunk/extras/blob/main/files/vim/vim_motions_modes.md) to learn efficient navigation and editing techniques for Neovim.
 
 ---
 
@@ -126,5 +126,5 @@ This project is licensed under the [Apache 2.0 License](LICENSE).
 
 ---
 
-[![Back to Dotfiles](https://img.shields.io/badge/Back_to_Dotfiles-181717?style=flat-square&logo=github)](https://github.com/Miraj13123/dotfiles)
+[![Back to Dotfiles](https://img.shields.io/badge/Back_to_Dotfiles-181717?style=flat-square&logo=github)](https://github.com/corechunk/dotfiles)
 [![Connect on X](https://img.shields.io/badge/Connect_on_X-1DA1F2?style=flat-square&logo=x)](https://x.com/Mahmudul__Miraj)
